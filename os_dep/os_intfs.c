@@ -1021,12 +1021,12 @@ static unsigned int rtw_classify8021d(struct sk_buff *skb)
 
 
 static u16 rtw_select_queue(struct net_device *dev, struct sk_buff *skb
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 2, 0))
+#if 0 // (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 2, 0))
 			    ,struct net_device *sb_dev
-#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 19, 0))
+#elif 0 // (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 19, 0))
 			    ,struct net_device *sb_dev
                             ,select_queue_fallback_t fallback
-#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0))
+#elif 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0))
  			    ,void *unused
                              ,select_queue_fallback_t fallback
 #endif
@@ -3154,7 +3154,7 @@ static int route_dump(u32 *gw_addr , int *gw_index)
 
 	msg.msg_name = &nladdr;
 	msg.msg_namelen = sizeof(nladdr);
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
 	/* referece:sock_xmit in kernel code
 	 * WRITE for sock_sendmsg, READ for sock_recvmsg
 	 * third parameter for msg_iovlen
@@ -3197,7 +3197,7 @@ restart:
 		iov.iov_base = pg;
 		iov.iov_len = PAGE_SIZE;
 
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
 		iov_iter_init(&msg.msg_iter, READ, &iov, 1, PAGE_SIZE);
 #endif
 
@@ -3265,7 +3265,7 @@ done:
 
 		msg.msg_name = &nladdr;
 		msg.msg_namelen = sizeof(nladdr);
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
 		iov_iter_init(&msg.msg_iter, WRITE, &iov, 1, sizeof(req));
 #else
 		msg.msg_iov = &iov;
@@ -3957,7 +3957,7 @@ int rtw_resume_process_wow(_adapter *padapter)
 
 	if (pwrpriv->wowlan_wake_reason == RX_PNO) {
 #ifdef CONFIG_IOCTL_CFG80211
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 2, 0))
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 2, 0))
 		u8 locally_generated = 1;
 
 		cfg80211_disconnected(padapter->pnetdev, 0, NULL, 0, locally_generated, GFP_ATOMIC);

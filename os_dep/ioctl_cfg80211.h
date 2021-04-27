@@ -298,7 +298,7 @@ void rtw_cfg80211_deinit_rfkill(struct wiphy *wiphy);
 #endif
 #endif
 
-#if (KERNEL_VERSION(4, 7, 0) >= LINUX_VERSION_CODE)
+#if 0 // (KERNEL_VERSION(4, 7, 0) >= LINUX_VERSION_CODE)
 #define NUM_NL80211_BANDS IEEE80211_NUM_BANDS
 #endif
 

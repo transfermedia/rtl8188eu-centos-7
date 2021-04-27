@@ -1359,7 +1359,7 @@ u8 rtw_btcoex_sendmsgbysocket(_adapter *padapter, u8 *msg, u8 msg_size, bool for
 	iov.iov_len	 = msg_size;
 	udpmsg.msg_name	 = &pcoex_info->bt_sockaddr;
 	udpmsg.msg_namelen	= sizeof(struct sockaddr_in);
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 19, 0))
 	/* referece:sock_xmit in kernel code
 	 * WRITE for sock_sendmsg, READ for sock_recvmsg
 	 * third parameter for msg_iovlen

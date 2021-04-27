@@ -6,7 +6,7 @@
 
 #ifdef CONFIG_IOCTL_CFG80211
 
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0)) || defined(RTW_VENDOR_EXT_SUPPORT)
+#if 1 // (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 14, 0)) || defined(RTW_VENDOR_EXT_SUPPORT)
 
 /*
 #include <linux/kernel.h>
@@ -34,7 +34,7 @@ struct sk_buff *dbg_rtw_cfg80211_vendor_event_alloc(struct wiphy *wiphy, struct 
 	struct sk_buff *skb;
 	unsigned int truesize = 0;
 
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
+#if 0 // (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
 	skb = cfg80211_vendor_event_alloc(wiphy, len, event_id, gfp);
 #else
 	skb = cfg80211_vendor_event_alloc(wiphy, wdev, len, event_id, gfp);
@@ -133,7 +133,7 @@ static struct sk_buff *rtw_cfg80211_vendor_event_alloc(
 {
 	struct sk_buff *skb;
 
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
+#if 0 // (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
 	skb = cfg80211_vendor_event_alloc(wiphy, len, event_id, gfp);
 #else
 	skb = cfg80211_vendor_event_alloc(wiphy, wdev, len, event_id, gfp);
