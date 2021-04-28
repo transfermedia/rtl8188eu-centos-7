@@ -1,4 +1,10 @@
-IMPORTANT - PLEASE READ:
+rtl8188eu-centos-7
+=========
+
+Repository for the stand-alone RTL8188EU driver, patched to work with RHEL/CentOS 7 kernels.
+
+A Note from the Upstream Maintainer
+---------
 
 Beginning on November 4, 2019, I will NO LONGER support people that have downloaded the source
 as a zip file. Using git has much more flexibility. In addition, there is much less liklihood
@@ -16,11 +22,6 @@ If a build fails that previously worked, perform a 'git pull' and retry before
 reporting a problem. As noted, if you had downloaded the source in zip form, then you would
 need to get an entirely new source file. That is why using git, which downloads only the changed
 lines, is required.
-
-rtl8188eu
-=========
-
-Repository for the stand-alone RTL8188EU driver.
 
 Compiling & Building
 ---------
